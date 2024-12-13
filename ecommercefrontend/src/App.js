@@ -1,17 +1,16 @@
 // Import React and React-Bootstrap components
-import React,{useState,useContext} from "react";
-import { Navbar, Nav, Container, Row } from "react-bootstrap";
+import React,{useState} from "react";
+import {Container, Row } from "react-bootstrap";
 import Product from "./components/Products/Product";
 import CartModal from "./components/Modal/CartModal";
 import ContextProvider from "./store/ContextProvider";
-import cartContext from "./store/cartContext";
+import NavBar from "./components/NavBar/NavBar";
 
 
 
 
 function App() {
 
-  const cartCtx = useContext(cartContext)
   
   const productsArr = [
 
@@ -48,30 +47,12 @@ function App() {
 
     const handleCartShow = () => setShowCart(true);
     const handleCartClose = () => setShowCart(false);
-    
-    console.log(cartCtx)
+ 
   return (
   
 
 <ContextProvider>
-
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">My Store</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#store">Store</Nav.Link>
-              <Nav.Link href="#about">About</Nav.Link> 
-              <Nav.Link href="#cart" className="btn btn-dark text-white ms-3 px-3" onClick={handleCartShow}>
-                Cart{cartCtx.cart.length}
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
+     <NavBar onHandleCartShow={handleCartShow} />
       <Container className="mt-5" style={{ maxWidth: "960px" }}>
         <h1 className="text-center mb-4">Welcome to Our Store</h1>
         <Row className="g-3">

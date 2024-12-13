@@ -14,7 +14,8 @@ const ContextProvider = ({children}) => {
         updatedCart[checkIfAlready].quantity += 1;
         setCartList(updatedCart);
         alert('Product quantity updated!');
-      } else {
+      } 
+      else {
         setCartList(prevCart => [
           ...prevCart,
           {
