@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import {Navbar,Container,Nav} from 'react-bootstrap'
 import cartContext from '../../store/cartContext'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = ({onHandleCartShow}) => {
 
@@ -15,10 +16,19 @@ const NavBar = ({onHandleCartShow}) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#store">Store</Nav.Link>
-              <Nav.Link href="#about">About</Nav.Link> 
-              <Nav.Link href="#cart" className="btn btn-dark text-white ms-3 px-3" onClick={onHandleCartShow}>
+              <NavLink  exact ={true}
+                    to="/"
+                    className="nav-link"
+                    activeClassName="active" >Home</NavLink>
+              <NavLink  exact ={true}
+                    to="/store"
+                    className="nav-link"
+                    activeClassName="active" >Store</NavLink>
+              <NavLink   exact ={true}
+                    to="/about"
+                    className="nav-link"
+                    activeClassName="active" >About</NavLink> 
+              <Nav.Link  className="btn btn-dark text-white ms-3 px-3" onClick={onHandleCartShow}>
                 Cart({cartCtx.cart.length})
               </Nav.Link>
             </Nav>
