@@ -39,7 +39,7 @@ const ProductStore = () => {
     <h1 className="text-center mb-4">Welcome to Our Store</h1>
     <Row className="g-3">
  
-       <Product productsArr={productsArr}/>
+       <Product  productsArr={productsArr}/>
     </Row>
   </Container>
         

@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userQuerySchema = new Schema({
-     userName : {
+    userName : {
         type: String,
         required: true
      },
-     Email:{
+     userEmail:{
         type:String,
         required: true
      },
-     PhoneNumber:{
+     userPhone:{
         type: Number,
         required: true
      }

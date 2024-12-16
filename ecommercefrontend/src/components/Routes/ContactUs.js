@@ -19,9 +19,27 @@ const ContactUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    let optionObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(formData)
+    }
+    setFormData({
+        name: '',
+        email: '',
+        phone: ''
+      })
+    const sendQueryToBackend = await apiRequest('http://localhost:8080/userquery',optionObj)
+     if(sendQueryToBackend.error){
+        console.log(sendQueryToBackend.error)
+     }else{
+        alert('your queries saved successfully! We will contact you shortly')
+        console.log(sendQueryToBackend)
+     }
   };
 
   return (
