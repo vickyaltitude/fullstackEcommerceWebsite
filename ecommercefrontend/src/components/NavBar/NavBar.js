@@ -28,6 +28,10 @@ const NavBar = ({onHandleCartShow}) => {
                     to="/about"
                     className="nav-link"
                     activeClassName="active" >About</NavLink> 
+              <NavLink   exact ={true}
+                    to="/contactus"
+                    className="nav-link"
+                    activeClassName="active" >Contact Us</NavLink> 
               <Nav.Link  className="btn btn-dark text-white ms-3 px-3" onClick={onHandleCartShow}>
                 Cart({cartCtx.cart.length})
               </Nav.Link>

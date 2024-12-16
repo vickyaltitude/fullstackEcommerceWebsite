@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, Button, Carousel, Image } from 'react-bootst
 const Home = () => {
   return (
     <div>
-      {/* Hero Section: Banner Image with Welcome Message */}
+   
       <Container fluid className="p-0">
         <Carousel>
           <Carousel.Item>
@@ -36,7 +36,6 @@ const Home = () => {
         </Carousel>
       </Container>
 
-      {/* Featured Products Section */}
       <Container className="my-5">
         <h2 className="text-center mb-4">Featured Products</h2>
         <Row>
@@ -79,7 +78,7 @@ const Home = () => {
         </Row>
       </Container>
 
-      {/* About Section */}
+
       <Container className="my-5">
         <Row>
           <Col md={6}>
@@ -102,7 +101,6 @@ const Home = () => {
         </Row>
       </Container>
 
-      {/* Testimonials Section */}
       <Container className="my-5">
         <h2 className="text-center mb-4">What Our Customers Say</h2>
         <Row>

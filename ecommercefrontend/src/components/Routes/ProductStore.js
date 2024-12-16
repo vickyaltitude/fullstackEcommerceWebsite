@@ -38,7 +38,7 @@ const ProductStore = () => {
      <Container className="mt-5" style={{ maxWidth: "960px" }}>
     <h1 className="text-center mb-4">Welcome to Our Store</h1>
     <Row className="g-3">
-      {/* products card here */}
+ 
        <Product productsArr={productsArr}/>
     </Row>
   </Container>
