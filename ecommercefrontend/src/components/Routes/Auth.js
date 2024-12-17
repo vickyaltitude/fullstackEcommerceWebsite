@@ -19,7 +19,7 @@ function Auth() {
       return
     } else {
       setError('');
-      // Implement your login logic here (e.g., API call)
+      
       
       fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCJP-QToDvSItqm9P5mPuAG1s3xI6CwdDQ',{
         method: 'POST',
@@ -30,7 +30,7 @@ function Auth() {
       }).then(resp =>{
     
          if(resp.ok){
-           resp.json().then(resp => cartCtx.handleSetUserToken(resp.idToken))
+           resp.json().then(resp => cartCtx.handleSetUserToken(resp.idToken,email))
 
            setError(null)
            navigate('/store')

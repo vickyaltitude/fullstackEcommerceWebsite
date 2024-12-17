@@ -2,12 +2,17 @@ import React, { useContext } from 'react'
 import {Col,Card,Button} from "react-bootstrap"
 import cartContext from '../../store/cartContext'
 import { Link } from 'react-router-dom'
+
+
 const Product = ({productsArr}) => {
   
   const cartCtx = useContext(cartContext);
 
-  function handleAddToCart(prod){
+  async function handleAddToCart(prod){
+
       cartCtx.addToCart(prod)
+
+     
   }
 
 

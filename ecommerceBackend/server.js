@@ -6,9 +6,11 @@ const cors = require('cors');
 const dbConnect = require('./util/dbConnection.js');
 
 const userQuery = require('./routes/userQuery.js');
+const userCart = require('./routes/userCart.js');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json()); 
+app.use(express.json());
 
 
 app.use(cors({
@@ -16,9 +18,11 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true
 }));
-app.u
+
 
 app.use(userQuery)
+
+app.use(userCart)
 
 dbConnect().then(res =>{
     console.log('db connected successfully')
