@@ -7,6 +7,7 @@ const ContextProvider = ({children}) => {
     const navigate = useNavigate();
     const [cartList,setCartList]= useState([])
     const[userToken,setUserToken] = useState(null);
+    const [isLogin,setIsLogin] = useState(false);
 
     function addProductToCart(products){
         
@@ -67,15 +68,18 @@ const ContextProvider = ({children}) => {
     }
 
     function handleSetUserToken(UID,email){
-      if(UID){
+
+      if(!isLogin){
         setUserToken(UID)
         localStorage.setItem('userAuth',JSON.stringify(UID))
         localStorage.setItem('userEmail',email)
+        setIsLogin(true)
       }else{
-        setUserToken(UID)
         localStorage.removeItem('userAuth')
-        localStorage.setItem('userEmail')
+        localStorage.removeItem('userEmail')
+        setIsLogin(false)
         navigate('/auth')
+       
       }
      
     }
@@ -91,6 +95,7 @@ const ContextProvider = ({children}) => {
     useEffect(()=>{
 
       setUserToken(()=>JSON.parse(localStorage.getItem('userAuth')) || null);
+
       
          let setLogout = setTimeout(()=>{
           setUserToken(null)
@@ -102,6 +107,25 @@ const ContextProvider = ({children}) => {
       return ()=> clearTimeout(setLogout)
 
     },[userToken])
+
+    useEffect(()=>{
+
+      if(localStorage.getItem('userEmail')){
+
+        apiRequest('http://localhost:8080/getusercart',{
+          method: 'GET',
+          headers:{
+           useremail:  localStorage.getItem('userEmail')
+          }
+        }).then(resp => {
+        
+          setCartList(([...resp.data]))
+        
+        }).catch(err => console.log(err))
+
+     }
+
+    },[])
 
   return (
     <cartContext.Provider  value={sendValue}>

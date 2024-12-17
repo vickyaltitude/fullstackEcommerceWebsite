@@ -5,10 +5,10 @@ import cartContext from '../../store/cartContext'
 const CartModal = ({onHandleCartClose,showCart}) => {
 
     const cartCtx = useContext(cartContext);
-
+   console.log(cartCtx.cart)
   return (
     <>
-        {/* Cart Modal Component */}
+        
       <Modal show={showCart} onHide={onHandleCartClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Your Cart</Modal.Title>
