@@ -10,6 +10,7 @@ import ProductStore from "./components/Routes/ProductStore";
 import About from "./components/Routes/About";
 import ContactUs from "./components/Routes/ContactUs";
 import ProductPage from "./components/Routes/ProductPage";
+import Auth from "./components/Routes/Auth";
 
 
 
@@ -38,6 +39,7 @@ function App() {
       <Route path='store/:id' element={<ProductPage />} />
       <Route path='/about' element={<About />} />
       <Route path='/contactus' element={<ContactUs />} />
+      <Route path='/auth' element={<Auth /> } />
      </Routes>
 
      

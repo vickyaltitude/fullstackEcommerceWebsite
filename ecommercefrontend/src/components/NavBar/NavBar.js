@@ -20,10 +20,12 @@ const NavBar = ({onHandleCartShow}) => {
                     to="/"
                     className="nav-link"
                     activeClassName="active" >Home</NavLink>
-              <NavLink  exact ={true}
+                    {cartCtx.userToken && 
+                     <NavLink  exact ={true}
                     to="/store"
                     className="nav-link"
-                    activeClassName="active" >Store</NavLink>
+                    activeClassName="active" >Store</NavLink>}
+             
               <NavLink   exact ={true}
                     to="/about"
                     className="nav-link"
@@ -32,9 +34,20 @@ const NavBar = ({onHandleCartShow}) => {
                     to="/contactus"
                     className="nav-link"
                     activeClassName="active" >Contact Us</NavLink> 
+                    {!cartCtx.userToken && <NavLink   exact ={true}
+                    to="/auth"
+                    className="nav-link"
+                    activeClassName="active" >Login</NavLink>  }
+                     
               <Nav.Link  className="btn btn-dark text-white ms-3 px-3" onClick={onHandleCartShow}>
                 Cart({cartCtx.cart.length})
               </Nav.Link>
+              {cartCtx.userToken && <NavLink   exact ={true}
+                    to="/auth"
+                    className="nav-link"
+                    activeClassName="active" 
+                    onClick={cartCtx.handleSetUserToken}
+                    >Logout</NavLink>  }
             </Nav>
           </Navbar.Collapse>
         </Container>
